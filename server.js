@@ -15,8 +15,8 @@ app.use(cors());
 app.get("/test", (req, res) => {
   res.send("Tested");
 });
-app.get("weather", handleGetWeather);
-app.get("movies", handleGetMovies);
+app.get("/weather", handleGetWeather);
+app.get("/movies", handleGetMovies);
 app.get("/*", (req, res) => {
   res.status(404).send("error not found");
 });
