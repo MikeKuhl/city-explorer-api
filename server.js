@@ -7,11 +7,12 @@ const cors = require("cors");
 const { request } = require("express");
 const axios = require("axios");
 
+const port = process.env.PORT || 3000
 const app = express();
 
 app.use(cors());
 
-const PORT = process.env.PORT;
+
 
 app.get("/test", (req, res) => {
   res.send("Tested");
@@ -22,6 +23,7 @@ app.get("/*", (req, res) => {
   res.status(404).send("error not found");
 });
 async function handleGetMovies(req, res) {
+
   const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIEDB_API_KEY}&query=${req.query.query}`;
 
   console.log("hello");
@@ -75,4 +77,4 @@ class MovieData {
   }
 }
 
-app.listen(PORT, () => console.log("server is listening on port ", PORT));
+app.listen(port, () => console.log("server is listening on port ", port));
