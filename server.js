@@ -15,8 +15,8 @@ const PORT = process.env.PORT;
 app.get("/test", (req, res) => {
   res.send("Tested");
 });
-app.get("/weather", weather.handleGetWeather);
-app.get("/movies", movie.handleGetMovies);
+app.get("/weather", weather);
+app.get("/movies", movie);
 app.get("/*", (req, res) => {
   res.status(404).send("error not found");
 });
